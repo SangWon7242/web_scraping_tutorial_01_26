@@ -20,7 +20,6 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # 헤드라인 뉴스기사의 html을 가져오기
 print(soup.select('.as_headline .sa_text_strong'))
 
-
 head_line_news_title = []
 head_line_news_el = soup.select('.as_headline .sa_text_strong')
 
@@ -31,8 +30,25 @@ for idx, title_el in enumerate(head_line_news_el):
   
 print(head_line_news_title)  
 
-print("== 뉴스 기사 출력 ==")
+print("== 헤드라인 뉴스 기사 출력 ==")
 for idx, title in enumerate(head_line_news_title):  
   print(f"{idx + 1} : {title}")
+
+print("== 키워드를 기반으로 뉴스기사 출력 ==")
+keyword = "AI"
+
+# title.find(keyword)
+# - 키워드가 포함되어 있으면 0을 반환
+# - 키워드가 포함되어 있지 않으면 -1을 반환
+
+find_keyword_news_title = []
+
+for idx, title in enumerate(head_line_news_title):  
+  if title.find(keyword) != -1:
+    find_keyword_news_title.append(title)
+    
+print(find_keyword_news_title)    
+    
+
   
 
