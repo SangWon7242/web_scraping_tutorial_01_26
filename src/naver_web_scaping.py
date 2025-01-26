@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 # 1. 웹 페이지 요청
 url = "https://news.naver.com/section/105"  # 스크래핑할 웹 페이지 URL
@@ -29,7 +30,6 @@ for idx, title_el in enumerate(head_line_news_el):
   print(f"{idx} : {title_el.get_text()}")
   
 print(head_line_news_title)  
-
 print("== 헤드라인 뉴스 기사 출력 ==")
 for idx, title in enumerate(head_line_news_title):  
   print(f"{idx + 1} : {title}")
@@ -51,4 +51,3 @@ print(find_keyword_news_title)
     
 
   
-
